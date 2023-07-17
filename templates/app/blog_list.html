@@ -1,0 +1,98 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Meyawo Landing page | Free Bootstrap 4.3.x landing page</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/meyawo.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo" href="{% url 'index' %}" >BACK TO HOME</a>
+        <ul class="nav">
+        
+        </ul>
+
+    </div>
+</nav><!-- End of Page Navbar -->
+
+
+
+<!-- about section -->
+<section class="section pt-0" id="about">
+    <!-- container -->
+    <div class="container text-center">
+    <br><br><br>
+    <h1 style="padding: 20px; color: darkgreen;
+    background-color: lemonchiffon">Blog list</h1>
+    <br><br><br>
+        <!-- about wrapper -->
+        {% for blog in blogs %}
+        <div class="about">
+
+            <div class="about-img-holder">
+                <a href="{% url 'blog_details' blog.id %}"><img src="{{ blog.image.url }}" class="about-img"
+                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+             </a>
+
+            </div>
+            <div class="about-caption">
+                <p class="section-subtitle">By: {{ blog.user }} </p>
+                <h2 class="section-title mb-3">{{ blog.title }}</h2>
+                <p>
+                    {{ blog.description }}
+                </p>
+
+
+            </div>
+        </div><!-- end of about wrapper -->
+        {% endfor %}
+    </div><!-- end of container -->
+</section> <!-- end of about section -->
+
+
+
+
+
+
+<!-- footer -->
+<div class="container">
+    <footer class="footer">
+        <p class="mb-0">Copyright
+            <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="http://www.devcrud.com">DevCRUD</a> Distribution <a
+                    href="https://themewagon.com">ThemeWagon</a>
+        </p>
+        <div class="social-links text-right m-auto ml-sm-auto">
+            <a href="https://google.com" class="link"><i class="ti-google"></i></a>
+            <a href="https://github.com/web-dastur" class="link"><i class="ti-github"></i></a>
+        </div>
+    </footer>
+</div> <!-- end of page footer -->
+
+<!-- core  -->
+<script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+<script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+<!-- bootstrap 3 affix -->
+<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+<!-- Meyawo js -->
+<script src="{% static 'assets/js/meyawo.js' %}"></script>
+
+</body>
+
+</html>
